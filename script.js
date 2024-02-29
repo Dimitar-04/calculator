@@ -55,6 +55,11 @@ function populate_board(value)
     board.textContent=text;
     i++;
 }
+function isdecimal(num)
+{
+    return num%1!==0;
+}
+
 function solve()
 {
     let num1=[];
@@ -64,12 +69,14 @@ function solve()
     let num2=[];
     let k=0;
     let i=0;
+    let dali=0;
     let op;
     let l=text.length;
     for(let j=0;j<l;j++)
     {
         if(text[j]=='+')
         {
+            
             let cpy=j;
             cpy--;
             if(result==0){
@@ -94,6 +101,7 @@ function solve()
                 num2[k]=text[cpy];
                 k++;
                 cpy++;
+                dali=1;
             }
             number2=num2.join("");
             number2=Number(number2);
@@ -135,6 +143,7 @@ function solve()
                 num2[k]=text[cpy];
                 k++;
                 cpy++;
+                dali=1;
             }
             k=0;
             number2=num2.join("");
@@ -174,6 +183,7 @@ function solve()
                 num2[k]=text[cpy];
                 k++;
                 cpy++;
+                dali=1;
             }
             k=0;
             number2=num2.join("");
@@ -214,11 +224,18 @@ function solve()
                 num2[k]=text[cpy];
                 k++;
                 cpy++;
+                dali=1;
             }
             k=0;
             number2=num2.join("");
             number2=Number(number2);
-            if(result==0)
+            if(number2==0)
+            {
+                let board=document.querySelector('.textbox')
+                board.textContent="Cannot divide by 0!";
+                return 0;
+            }
+            else if(result==0)
             {
                 result=divide(number1,number2);
             }
@@ -230,8 +247,22 @@ function solve()
         }
         
     }
-    result=result.toFixed(3);
+    if(dali!=0)
+    {
+        if(isdecimal(result))
+        {
+            result=result.toFixed(2);
+        }
+        let board=document.querySelector('.textbox');
+        board.textContent=" ";
+        board.textContent=result;
+    }
+    
+};
+function clearboard()
+{
+    
     let board=document.querySelector('.textbox');
-    board.textContent=" ";
-    board.textContent=result;
+    arr=[];
+    board.textContent='0';
 }
