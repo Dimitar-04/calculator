@@ -10,9 +10,9 @@
 <body>
     <div class="container">
         <div class="title">Calculator</div>
-        <div class="textbox"></div>
+        <div class="textbox">0</div>
         <div class="btn-container">
-            <button onclick="populate_board('-')">-</button>
+            <button onclick="populate_board('-')" onkeydown="populate_board('-')">-</button>
             <button onclick="populate_board('+')">+</button>
             <button onclick="populate_board('*')">*</button>
             <button onclick="populate_board('/')">/</button>
@@ -26,8 +26,12 @@
             <button onclick="populate_board('8')">8</button>
             <button onclick="populate_board('9')">9</button>
             <button onclick="populate_board('0')">0</button>
-            <button onclick="solve()">=</button>
-            <button class="clear">clear</button>
+            <div class="functionbtns">
+                <button onclick="solve()">=</button>
+                <button onclick="decimal()" class="decimal">.</button>
+                <button onclick="clearboard()">CLR</button>
+                <button onclick="backspace()">BCK</button>
+            </div>
         </div>
     </div>
     
