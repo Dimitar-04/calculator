@@ -5,6 +5,13 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    border:5px solid black;
+    padding: 8px;
+    margin-top: 100px;
+    height: 400px;
+    background-color: lightgrey;
+    
+    
 }
 .textbox{
     width:300px;
@@ -14,18 +21,38 @@
     justify-content: flex-end;
     align-items: flex-end;
     font-size: 30px;
+    margin-top: 10px;
+    background-color: white;
 }
 .btn-container{
-    width: 100px;
+    margin-top: 30px;
+    width: 200px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
     align-items: center;
+    
 }
 button{
     padding: 8px;
     width:40px;
     text-align: center;
+    background-color: lightsalmon;
 
+}
+.functionbtns
+{
+    display: flex;
+    gap: 8px;
+    
+ 
+}
+.functionbtns button{
+    padding: 8px;
+    width: 50px;
+}
+.title{
+    font-size: 37px;
+    font-weight: bold;
 }
