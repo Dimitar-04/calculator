@@ -320,4 +320,14 @@ document.addEventListener('keydown',(event)=>
     {
         solve();
     }
+    
 });
+
+// function backspace()
+// {
+//     let board=document.querySelector('.textbox')
+//     arr.pop();
+//     text=arr.join("");
+//     board.textContent=text;
+//     i--;
+// }
