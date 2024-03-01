@@ -1,4 +1,5 @@
 let result;
+let dot=false;
 function add(a,b)
 {
     result=a+b;
@@ -54,6 +55,10 @@ function populate_board(value)
     text=arr.join("");
     board.textContent=text;
     i++;
+    if(value=='+'||value=='-'||value=='*'||value=='/')
+    {
+        dot=false;
+    }
 }
 function isdecimal(num)
 {
@@ -266,3 +271,53 @@ function clearboard()
     arr=[];
     board.textContent='0';
 }
+function decimal()
+{
+    if(dot==false)
+    {
+    let board=document.querySelector('.textbox')
+    arr[i]='.';
+    text=arr.join("");
+    board.textContent=text;
+    i++;
+    dot=true;
+    }
+}
+
+function backspace()
+{
+    let board=document.querySelector('.textbox')
+    arr.pop();
+    text=arr.join("");
+    board.textContent=text;
+    i--;
+}
+
+//keyboard support
+document.addEventListener('keydown',(event)=>
+{
+    if(event.key>=0 && event.key<=9)
+    {
+        populate_board(event.key);
+    }
+    else if(event.key=='+'||event.key=='-'||event.key=='*'||event.key=='/')
+    {
+        populate_board(event.key);
+    }
+    else if(event.key=='Backspace')
+    {
+        backspace();
+    }
+    else if(event.key=='.')
+    {
+        decimal();
+    }
+    else if(event.key=='Escape')
+    {
+        clearboard();
+    }
+    else if(event.key=='Enter')
+    {
+        solve();
+    }
+});
